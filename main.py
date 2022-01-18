@@ -72,6 +72,7 @@ def provide_index_letter(wordNumber):
 Terminamos a execução armazenando o resultado em um arquivo log.txt
 '''
 with open("output/log.txt", 'w') as file:
+    file.write("**-- CONCORDANCIA --*\n")
     for index in range(len(word_list)):
         word = word_list[index]
         indexLetter = provide_index_letter(index)
@@ -79,4 +80,5 @@ with open("output/log.txt", 'w') as file:
         for ocurrence in range(word_count_dict[word]["count"]):
             ocurrences += " " + str(word_count_dict[word]['phrases'][ocurrence])
         file.write(f"{indexLetter}. {word}: " + "{" + f"{word_count_dict[word]['count']}:{ocurrences}" + "}\n")
+    file.write("**-- FINAL DA CONCORDANCIA --*")
 file.close()
